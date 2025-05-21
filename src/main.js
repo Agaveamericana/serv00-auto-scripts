@@ -48,8 +48,13 @@ async function sendTelegramMessage(token, chatId, message) {
             headless: false, 
             args: [
                 '--no-sandbox',
-                '--disable-setuid-sandbox'
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-infobars',
+                '--disable-blink-features=AutomationControlled'
             ],
+            defaultViewport: null,
+            ignoreHTTPSErrors: true
         });
         const page = await browser.newPage();
         // await page.setViewport({ width: 1366, height: 768 });
